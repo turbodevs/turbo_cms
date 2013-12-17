@@ -1,0 +1,31 @@
+= form_for ([:admin, @page]), :html => {:multipart => true} do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@page.errors.count, "error")
+        prohibited this page from being saved:
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :position
+    = f.number_field :position
+    %br/
+  .field
+    = f.label :parent_id
+    = f.number_field :parent_id
+    %br/
+  .field
+    = f.label :title
+    = f.text_field :title
+    %br/
+  .field
+    = f.label :content
+    = f.text_area :content
+    %br/
+  %br/
+  .actions
+    = f.submit "Создать", class: "btn btn-mini btn-inverse"
+
+= content_for(:javascript_code) do
+  CKEDITOR.replace('page_content');

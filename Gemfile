@@ -18,6 +18,7 @@ gem "less-rails"
 # Images
 gem 'carrierwave'
 gem 'rmagick', require: false
+gem "ckeditor"
 
 # Tools
 gem 'kaminari'

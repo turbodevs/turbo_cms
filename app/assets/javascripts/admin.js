@@ -17,4 +17,6 @@
 //= require jquery.ui.sortable
 //= require twitter/bootstrap
 //= require jquery.mjs.nestedSortable.js
+//= require ckeditor/override
+//= require ckeditor/init
 //= require_tree ./base

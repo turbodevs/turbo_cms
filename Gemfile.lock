@@ -61,6 +61,9 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
     choice (0.1.6)
+    ckeditor (4.0.7)
+      mime-types
+      orm_adapter
     code_analyzer (0.4.3)
       sexp_processor
     coffee-rails (4.0.1)
@@ -321,6 +324,7 @@ DEPENDENCIES
   capybara
   capybara-webkit
   carrierwave
+  ckeditor
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner

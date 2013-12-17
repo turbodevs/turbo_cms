@@ -1,0 +1,33 @@
+:javascript
+  $(function() { 
+  
+    $("#sortable").sortable ({ 
+      items: "> tr", 
+      stop: function (event, ui) { 
+        var items = $("#sortable").sortable("toArray");
+        $.post( "/admin/pages/reorder", {
+          items: items
+        });
+      }
+    });  
+    $( "#sortable" ).disableSelection();  
+  });
+  
+%h1.pages_header_message Страницы
+
+%table.table.table-bordered
+
+  %thead
+    %tr
+      %th Название
+      %th Кнопки управления
+
+  %tbody#sortable
+    - @pages.each do |page|
+      %tr{id: page.id}
+        %td= h raw(page.title)
+        %td
+          = link_to 'Изменение', edit_admin_page_path(page), class: "btn btn-mini btn-warning"
+          = link_to 'Удаление', admin_page_path(page), class: "btn btn-mini btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'Новая страница', new_admin_page_path, class: "btn btn-mini btn-inverse"
